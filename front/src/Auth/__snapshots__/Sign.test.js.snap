@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render LoginMenu for authenticated users 1`] = `
+<ul
+  className="nav navbar-nav navbar-right"
+>
+  <li>
+    <a
+      className="hover-pointer"
+    >
+      Logout
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`render LoginMenu for not authenticated users 1`] = `
+<ul
+  className="nav navbar-nav navbar-right"
+>
+  <li
+    className="dropdown"
+  >
+    <a
+      className="dropdown-toggle"
+      data-toggle="dropdown"
+    >
+      <b>
+        Login
+      </b>
+       
+      <span
+        className="caret"
+      />
+    </a>
+    <ul
+      className="dropdown-menu"
+      id="login-dp"
+    >
+      <li>
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-12"
+          >
+            <span>
+              Login
+            </span>
+            <form
+              acceptCharset="UTF-8"
+              className="form"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="login_email"
+                >
+                  Email address
+                </label>
+                <input
+                  className="form-control"
+                  id="login_email"
+                  placeholder="Email address"
+                  required={true}
+                  type="email"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="login_password"
+                >
+                  Password
+                </label>
+                <input
+                  className="form-control"
+                  id="login_password"
+                  placeholder="Password"
+                  required={true}
+                  type="password"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <button
+                  className="btn btn-primary btn-block"
+                  type="submit"
+                >
+                  Login
+                </button>
+              </div>
+            </form>
+            <span>
+              or Register
+            </span>
+            <form
+              acceptCharset="UTF-8"
+              className="form"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="register_username"
+                >
+                  Username
+                </label>
+                <input
+                  className="form-control"
+                  id="register_username"
+                  placeholder="Username"
+                  required={true}
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="register_first_name"
+                >
+                  First name
+                </label>
+                <input
+                  className="form-control"
+                  id="register_first_name"
+                  placeholder="First name"
+                  required={true}
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="register_last_name"
+                >
+                  Last name
+                </label>
+                <input
+                  className="form-control"
+                  id="register_last_name"
+                  placeholder="Last name"
+                  required={true}
+                  type="text"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="register_email"
+                >
+                  Email address
+                </label>
+                <input
+                  className="form-control"
+                  id="register_email"
+                  placeholder="Email address"
+                  required={true}
+                  type="email"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="sr-only"
+                  htmlFor="register_password"
+                >
+                  Password
+                </label>
+                <input
+                  className="form-control"
+                  id="register_password"
+                  placeholder="Password"
+                  required={true}
+                  type="password"
+                />
+              </div>
+              <div
+                className="form-group"
+              >
+                <button
+                  className="btn btn-primary btn-block"
+                  type="submit"
+                >
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;

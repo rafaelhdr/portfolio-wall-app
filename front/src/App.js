@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { LoginMenu } from './Auth/Sign.js'
 
 class Navbar extends Component {
   render() {
@@ -15,9 +16,12 @@ class Navbar extends Component {
             </button>
             <a className="navbar-brand">Wall App</a>
           </div>
-        </div>
 
-        
+          <LoginMenu
+            isAuthenticated={this.props.isAuthenticated}
+          />
+
+        </div>
       </nav>
     )
   }
@@ -40,10 +44,21 @@ class Main extends Component {
 }
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAuthenticated: false,
+      user: null,
+    }
+  }
+
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar
+          isAuthenticated={this.state.isAuthenticated}
+        />
         <Main />
       </div>
     );
