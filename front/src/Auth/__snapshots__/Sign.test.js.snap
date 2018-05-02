@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render LoginMenu for authenticated users 1`] = `
+exports[`Components render LoginMenu for authenticated users 1`] = `
 <ul
   className="nav navbar-nav navbar-right"
 >
@@ -14,7 +14,7 @@ exports[`render LoginMenu for authenticated users 1`] = `
 </ul>
 `;
 
-exports[`render LoginMenu for not authenticated users 1`] = `
+exports[`Components render LoginMenu for not authenticated users 1`] = `
 <ul
   className="nav navbar-nav navbar-right"
 >
@@ -26,7 +26,7 @@ exports[`render LoginMenu for not authenticated users 1`] = `
       data-toggle="dropdown"
     >
       <b>
-        Login
+        Login or Register
       </b>
        
       <span
@@ -102,22 +102,25 @@ exports[`render LoginMenu for not authenticated users 1`] = `
             <form
               acceptCharset="UTF-8"
               className="form"
+              onSubmit={[Function]}
             >
               <div
                 className="form-group"
               >
                 <label
                   className="sr-only"
-                  htmlFor="register_username"
+                  htmlFor="username"
                 >
                   Username
                 </label>
                 <input
                   className="form-control"
-                  id="register_username"
+                  id="username"
+                  onChange={[Function]}
                   placeholder="Username"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -125,16 +128,18 @@ exports[`render LoginMenu for not authenticated users 1`] = `
               >
                 <label
                   className="sr-only"
-                  htmlFor="register_first_name"
+                  htmlFor="first_name"
                 >
                   First name
                 </label>
                 <input
                   className="form-control"
-                  id="register_first_name"
+                  id="first_name"
+                  onChange={[Function]}
                   placeholder="First name"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -142,16 +147,18 @@ exports[`render LoginMenu for not authenticated users 1`] = `
               >
                 <label
                   className="sr-only"
-                  htmlFor="register_last_name"
+                  htmlFor="last_name"
                 >
                   Last name
                 </label>
                 <input
                   className="form-control"
-                  id="register_last_name"
+                  id="last_name"
+                  onChange={[Function]}
                   placeholder="Last name"
                   required={true}
                   type="text"
+                  value=""
                 />
               </div>
               <div
@@ -159,16 +166,18 @@ exports[`render LoginMenu for not authenticated users 1`] = `
               >
                 <label
                   className="sr-only"
-                  htmlFor="register_email"
+                  htmlFor="email"
                 >
                   Email address
                 </label>
                 <input
                   className="form-control"
-                  id="register_email"
+                  id="email"
+                  onChange={[Function]}
                   placeholder="Email address"
                   required={true}
                   type="email"
+                  value=""
                 />
               </div>
               <div
@@ -176,16 +185,18 @@ exports[`render LoginMenu for not authenticated users 1`] = `
               >
                 <label
                   className="sr-only"
-                  htmlFor="register_password"
+                  htmlFor="password"
                 >
                   Password
                 </label>
                 <input
                   className="form-control"
-                  id="register_password"
+                  id="password"
+                  onChange={[Function]}
                   placeholder="Password"
                   required={true}
                   type="password"
+                  value=""
                 />
               </div>
               <div
