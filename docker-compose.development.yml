@@ -1,0 +1,25 @@
+version: "3.5"
+
+services:
+
+  api:
+    build:
+      context: ./api
+      dockerfile: development.Dockerfile
+    environment:
+      SECRET_KEY: 'DEVELOPMENT_SECRET_KEY'
+      CORS_ORIGIN: "*"
+      DEBUG: "True"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/code
+
+  front:
+    build:
+      context: ./front
+      dockerfile: development.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./front:/code
