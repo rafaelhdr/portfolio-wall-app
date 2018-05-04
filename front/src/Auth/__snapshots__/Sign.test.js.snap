@@ -50,22 +50,24 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
             <form
               acceptCharset="UTF-8"
               className="form"
+              onSubmit={[Function]}
             >
               <div
                 className="form-group"
               >
                 <label
                   className="sr-only"
-                  htmlFor="login_email"
+                  htmlFor="username"
                 >
-                  Email address
+                  Username
                 </label>
                 <input
                   className="form-control"
-                  id="login_email"
-                  placeholder="Email address"
+                  id="login_username"
+                  onChange={[Function]}
+                  placeholder="Username"
                   required={true}
-                  type="email"
+                  type="text"
                 />
               </div>
               <div
@@ -80,6 +82,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 <input
                   className="form-control"
                   id="login_password"
+                  onChange={[Function]}
                   placeholder="Password"
                   required={true}
                   type="password"

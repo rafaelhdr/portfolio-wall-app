@@ -42,3 +42,17 @@ class AuthTestCase(TestCase):
                                content_type="application/json")
         assert 200 == response.status_code
         assert 'A user with that username already exists.' == response.json()['errors']['username'][0]
+
+    def test_login_successful(self):
+        """
+        Users can login successfully.
+        """
+        User.objects.create_user('george', 'george@orwell.com', 'password')
+
+        self.c.post('/auth/login',
+                    json.dumps({'username': 'george',
+                                'password': 'password',
+                                }),
+                    content_type="application/json")
+
+        assert self.c.session['_auth_user_id'] is not None

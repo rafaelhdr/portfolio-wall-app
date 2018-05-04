@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { LoginMenu } from './Auth/Sign.js'
 
+
 class Navbar extends Component {
   render() {
     return (

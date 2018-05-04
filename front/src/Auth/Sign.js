@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LoginForm } from './LoginForm.js';
 import { RegisterForm } from './RegisterForm.js';
 
 class LoginMenu extends Component {
@@ -22,19 +23,9 @@ class LoginMenu extends Component {
               <div className="row">
                 <div className="col-md-12">
                   <span>Login</span>
-                  <form className="form" acceptCharset="UTF-8">
-                    <div className="form-group">
-                      <label className="sr-only" htmlFor="login_email">Email address</label>
-                      <input type="email" className="form-control" id="login_email" placeholder="Email address" required />
-                    </div>
-                    <div className="form-group">
-                      <label className="sr-only" htmlFor="login_password">Password</label>
-                      <input type="password" className="form-control" id="login_password" placeholder="Password" required />
-                    </div>
-                    <div className="form-group">
-                      <button type="submit" className="btn btn-primary btn-block">Login</button>
-                    </div>
-                  </form>
+                  <LoginForm
+                    setUser={this.props.setUser}
+                  />
                   <span>or Register</span>
                   <RegisterForm
                     setUser={this.props.setUser}

@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from auth import views as auth_views 
+from django.conf import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^auth/register', auth_views.auth_register)
+    url(r'^auth/', include('auth.urls')),
 ]
