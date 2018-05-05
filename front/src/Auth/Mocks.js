@@ -13,6 +13,10 @@ const EXPECTED_BODY = {
     }
   },
 
+  LOGOUT_SUCCESSFUL: {
+    errors: null,
+  },
+
 }
 
 class MockApp {

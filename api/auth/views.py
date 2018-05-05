@@ -1,9 +1,10 @@
 from auth.forms import UserForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import json
+
 
 
 @api_view(['POST'])
@@ -49,3 +50,14 @@ def auth_login(request):
                 'Invalid username and/or password!'
             ],
         })
+
+
+@api_view(['POST'])
+def auth_logout(request):
+    """
+    Logout user
+    """
+    logout(request)
+    return Response({
+        'errors': None,
+    })

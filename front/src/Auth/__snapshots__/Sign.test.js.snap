@@ -7,6 +7,7 @@ exports[`Components render LoginMenu for authenticated users 1`] = `
   <li>
     <a
       className="hover-pointer"
+      onClick={[Function]}
     >
       Logout
     </a>

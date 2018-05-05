@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { LoginForm } from './LoginForm.js';
+import { Logout } from './Logout.js';
 import { RegisterForm } from './RegisterForm.js';
 
 class LoginMenu extends Component {
@@ -7,11 +8,9 @@ class LoginMenu extends Component {
   render() {
 
     if (this.props.isAuthenticated) {
-      return (
-        <ul className="nav navbar-nav navbar-right">
-          <li><a className="hover-pointer">Logout</a></li>
-        </ul>
-      )
+      return <Logout
+        setUser={this.props.setUser}
+      />
     }
 
     return (

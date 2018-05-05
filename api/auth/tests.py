@@ -56,3 +56,14 @@ class AuthTestCase(TestCase):
                     content_type="application/json")
 
         assert self.c.session['_auth_user_id'] is not None
+
+    def test_logout_successful(self):
+        """
+        Users can logout successfully.
+        """
+        User.objects.create_user('george', 'george@orwell.com', 'password')
+        self.c.login(username='george', password='password')
+
+        self.c.post('/auth/logout')
+
+        assert '_auth_user_id' not in self.c.session
