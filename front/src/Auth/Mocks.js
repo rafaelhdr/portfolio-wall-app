@@ -17,6 +17,17 @@ const EXPECTED_BODY = {
     errors: null,
   },
 
+  ME_SUCCESSFUL: {
+    errors: null,
+    data: {
+      user: {
+        first_name: 'George',
+        last_name: 'Orwell',
+        username: 'george',
+      }
+    }
+  },
+
 }
 
 class MockApp {

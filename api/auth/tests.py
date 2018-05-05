@@ -67,3 +67,17 @@ class AuthTestCase(TestCase):
         self.c.post('/auth/logout')
 
         assert '_auth_user_id' not in self.c.session
+    
+    def test_user_retrieve_self_information(self):
+        """
+        User can check if is logged (with information) or not
+        """
+
+        response = self.c.get('/auth/me')
+        assert response.json()['data']['user'] == None
+
+        User.objects.create_user('george', 'george@orwell.com', 'password')
+        self.c.login(username='george', password='password')
+
+        response = self.c.get('/auth/me')
+        assert response.json()['data']['user']['username'] == 'george'

@@ -6,6 +6,26 @@ from rest_framework.response import Response
 import json
 
 
+@api_view(['GET'])
+def auth_me(request):
+    """
+    Return logged user information
+    """
+    user_data = None
+    if request.user.is_authenticated():
+        user_data = {
+            'username': request.user.username,
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+        }
+
+    return Response({
+        'errors': None,
+        'data': {
+            'user': user_data,
+        }
+    })
+
 
 @api_view(['POST'])
 def auth_register(request):

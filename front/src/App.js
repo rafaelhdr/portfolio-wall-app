@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import { LoginMenu } from './Auth/Sign.js'
+import { checkUser } from './Auth/Me.js'
+import { WallMain } from './Wall/WallMain.js';
+import axios from "axios";
+axios.defaults.withCredentials = true;
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
 
 
 class Navbar extends Component {
@@ -29,22 +34,6 @@ class Navbar extends Component {
   }
 }
 
-class Main extends Component {
-
-  render() {
-    return (
-      <div className="container">
-
-        <div className="jumbotron">
-          <h2>My first wall message</h2>
-          <p>This is my first wall message. It is static and in the source-code (not dynamic from any database).</p>
-        </div>
-
-      </div>
-    )
-  }
-}
-
 class App extends Component {
 
   constructor(props) {
@@ -53,6 +42,10 @@ class App extends Component {
       isAuthenticated: false,
       user: null,
     }
+  }
+
+  componentDidMount() {
+    checkUser((user) => this.setUser(user))
   }
 
   setUser(user) {
@@ -69,7 +62,10 @@ class App extends Component {
           isAuthenticated={this.state.isAuthenticated}
           setUser={(user) => this.setUser(user)}
         />
-        <Main />
+        <WallMain
+          isAuthenticated={this.state.isAuthenticated}
+          setUser={(user) => this.setUser(user)}
+        />
       </div>
     );
   }
