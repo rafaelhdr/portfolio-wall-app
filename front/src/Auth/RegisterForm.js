@@ -45,6 +45,10 @@ class RegisterForm extends Component {
   }
 
   handleSubmit(event) {
+    /*
+     * Make request to the server to register user.
+     * If it is OK, update user in <App />
+     */
     event.preventDefault();
 
     return axios({
@@ -59,7 +63,14 @@ class RegisterForm extends Component {
       },
       headers: { 'Accept': 'application/json' }
     }).then((response) => {
-      console.log(response.data);
+      const data = response.data;
+      if (data.errors === null) {
+        this.props.setUser({
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          username: this.state.username,
+        });
+      }
     }).catch((error) => {
       console.error(error);
     })

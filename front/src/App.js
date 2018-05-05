@@ -19,6 +19,7 @@ class Navbar extends Component {
 
           <LoginMenu
             isAuthenticated={this.props.isAuthenticated}
+            setUser={this.props.setUser}
           />
 
         </div>
@@ -53,11 +54,19 @@ class App extends Component {
     }
   }
 
+  setUser(user) {
+    this.setState({
+      user: user,
+      isAuthenticated: (user != null),
+    })
+  }
+
   render() {
     return (
       <div>
         <Navbar
           isAuthenticated={this.state.isAuthenticated}
+          setUser={(user) => this.setUser(user)}
         />
         <Main />
       </div>

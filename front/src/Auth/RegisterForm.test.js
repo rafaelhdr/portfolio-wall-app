@@ -21,7 +21,18 @@ describe('API', () => {
   describe('methods', () => {
 
     it('register visitor', (done) => {
-      const wrapper = shallow(<RegisterForm />);
+      class MockApp {
+        constructor() {
+          this.setUserCalled = false;
+        }
+        setUser(user) {
+          this.setUserCalled = true;
+        }
+      }
+      var mockApp = new MockApp()
+      const wrapper = shallow(<RegisterForm
+        setUser={(user) => mockApp.setUser(user)}
+      />);
 
       wrapper.instance().handleChangeUsername({ target: { value: 'george', } });
       wrapper.instance().handleChangeFirstName({ target: { value: 'George', } });
@@ -40,8 +51,6 @@ describe('API', () => {
         })
       })
 
-
-      
     });
 
   })

@@ -36,7 +36,9 @@ class LoginMenu extends Component {
                     </div>
                   </form>
                   <span>or Register</span>
-                  <RegisterForm />
+                  <RegisterForm
+                    setUser={this.props.setUser}
+                  />
                 </div>
               </div>
             </li>
