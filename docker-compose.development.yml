@@ -7,6 +7,7 @@ services:
       context: ./api
       dockerfile: development.Dockerfile
     environment:
+      ALLOWED_HOSTS: "localhost" # Multiple domains possible. Separated by ;
       SECRET_KEY: 'DEVELOPMENT_SECRET_KEY'
       CORS_ORIGIN: "*"
       DEBUG: "True"
@@ -23,3 +24,4 @@ services:
       - "3000:3000"
     volumes:
       - ./front:/code
+      - ./pacts:/pacts

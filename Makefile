@@ -12,7 +12,10 @@ stop:
 	docker-compose -f docker-compose.development.yml stop
 
 
-test: test-front
+test: test-front test-api
 
 test-front:
 	cd front && make test
+
+test-api:
+	cd api && make test
