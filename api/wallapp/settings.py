@@ -141,3 +141,15 @@ CSRF_TRUSTED_ORIGINS = (
 CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_NAME = "XSRF-TOKEN"
 
+# Settings for e-mail
+# https://docs.djangoproject.com/en/1.11/topics/email/
+# https://github.com/django-ses/django-ses
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID', '')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+AWS_SES_REGION_NAME = os.environ.get('AWS_SES_REGION_NAME', '')
+AWS_SES_REGION_ENDPOINT = 'email.%s.amazonaws.com' % (AWS_SES_REGION_NAME)
+EMAIL_FROM = os.environ.get('EMAIL_FROM', 'example@wallapp.com')
+if AWS_ACCESS_KEY_ID != '' and AWS_SECRET_ACCESS_KEY != '' and AWS_SES_REGION_NAME != '':
+    EMAIL_BACKEND = 'django_ses.SESBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
