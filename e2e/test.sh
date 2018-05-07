@@ -7,6 +7,8 @@ export REACT_APP_BACKEND_HOST=${REACT_APP_BACKEND_HOST:-"http://localhost:3000"}
 
 # Clear DB for tests
 sqlite3 ${BASE_DIR}/api/db.sqlite3 "DELETE FROM  auth_user WHERE username='mocktest_george'";
+sqlite3 ${BASE_DIR}/api/db.sqlite3 "DELETE FROM  wall_post WHERE message='mocktest: This is my message'";
 
 # Tests
-testcafe chrome ${BASE_DIR}/e2e/auth.js
+testcafe chrome ${BASE_DIR}/e2e/auth.js \
+                ${BASE_DIR}/e2e/wall.js

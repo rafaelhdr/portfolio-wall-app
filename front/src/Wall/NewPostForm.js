@@ -60,7 +60,7 @@ class NewPostForm extends Component {
               <label className="sr-only" htmlFor="newpost_message">Message</label>
               <textarea id="newpost_message" className="form-control" rows="3" onChange={this.handleChangeMessage} value={this.state.message} readOnly={this.state.readonly} />
             </div>
-            <button type="submit" className="btn btn-primary" disabled={this.state.readonly}>Post new message to wall</button>
+            <button id="newpost_submit" type="submit" className="btn btn-primary" disabled={this.state.readonly}>Post new message to wall</button>
           </form>
         </div>
         <hr />

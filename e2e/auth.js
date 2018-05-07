@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe';
 
-fixture`Auth module`
+fixture`Auth`
   .page`${process.env.REACT_APP_BACKEND_HOST}`;
 
 
