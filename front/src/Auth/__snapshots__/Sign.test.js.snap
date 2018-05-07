@@ -69,6 +69,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="login_username"
                   onChange={[Function]}
                   placeholder="Username"
+                  readOnly={false}
                   required={true}
                   type="text"
                 />
@@ -87,6 +88,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="login_password"
                   onChange={[Function]}
                   placeholder="Password"
+                  readOnly={false}
                   required={true}
                   type="password"
                 />
@@ -96,6 +98,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
               >
                 <button
                   className="btn btn-primary btn-block"
+                  disabled={false}
                   id="login_submit"
                   type="submit"
                 >
@@ -125,6 +128,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="register_username"
                   onChange={[Function]}
                   placeholder="Username"
+                  readOnly={false}
                   required={true}
                   type="text"
                   value=""
@@ -144,6 +148,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="register_first_name"
                   onChange={[Function]}
                   placeholder="First name"
+                  readOnly={false}
                   required={true}
                   type="text"
                   value=""
@@ -163,6 +168,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="register_last_name"
                   onChange={[Function]}
                   placeholder="Last name"
+                  readOnly={false}
                   required={true}
                   type="text"
                   value=""
@@ -182,6 +188,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="register_email"
                   onChange={[Function]}
                   placeholder="Email address"
+                  readOnly={false}
                   required={true}
                   type="email"
                   value=""
@@ -201,6 +208,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                   id="register_password"
                   onChange={[Function]}
                   placeholder="Password"
+                  readOnly={false}
                   required={true}
                   type="password"
                   value=""
@@ -211,6 +219,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
               >
                 <button
                   className="btn btn-primary btn-block"
+                  disabled={false}
                   id="register_submit"
                   type="submit"
                 >

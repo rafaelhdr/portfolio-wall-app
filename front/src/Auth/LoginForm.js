@@ -11,6 +11,7 @@ class LoginForm extends Component {
     this.state = {
       username: '',
       password: '',
+      readonly: false,
     }
 
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -33,6 +34,8 @@ class LoginForm extends Component {
      */
     event.preventDefault();
 
+    this.setState({'readonly': true,});
+
     return axios({
       method: 'POST',
       url: `${API_ROOT}/auth/login`,
@@ -42,6 +45,7 @@ class LoginForm extends Component {
       },
       headers: { 'Accept': 'application/json' }
     }).then((response) => {
+      this.setState({'readonly': false,});
       const data = response.data;
       if (data.errors === null) {
         this.props.setUser({
@@ -50,6 +54,9 @@ class LoginForm extends Component {
           username: this.state.username,
         });
       }
+    }).catch((err) => {
+      this.setState({'readonly': false,});
+      console.error(err);
     })
   }
 
@@ -58,14 +65,14 @@ class LoginForm extends Component {
       <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label className="sr-only" htmlFor="username">Username</label>
-          <input type="text" className="form-control" id="login_username" placeholder="Username" onChange={this.handleChangeUsername} required />
+          <input type="text" className="form-control" id="login_username" placeholder="Username" onChange={this.handleChangeUsername} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="login_password">Password</label>
-          <input type="password" className="form-control" id="login_password" placeholder="Password" onChange={this.handleChangePassword} required />
+          <input type="password" className="form-control" id="login_password" placeholder="Password" onChange={this.handleChangePassword} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary btn-block" id="login_submit">Login</button>
+          <button type="submit" className="btn btn-primary btn-block" id="login_submit" disabled={this.state.readonly}>Login</button>
         </div>
       </form>
     )

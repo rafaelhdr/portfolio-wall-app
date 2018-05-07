@@ -14,6 +14,7 @@ class RegisterForm extends Component {
       username: '',
       email: '',
       password: '',
+      readonly: false,
     }
 
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -51,6 +52,8 @@ class RegisterForm extends Component {
      */
     event.preventDefault();
 
+    this.setState({'readonly': true,});
+
     return axios({
       method: 'POST',
       url: `${API_ROOT}/auth/register`,
@@ -63,6 +66,7 @@ class RegisterForm extends Component {
       },
       headers: { 'Accept': 'application/json' }
     }).then((response) => {
+      this.setState({'readonly': false,});
       const data = response.data;
       if (data.errors === null) {
         this.props.setUser({
@@ -72,6 +76,7 @@ class RegisterForm extends Component {
         });
       }
     }).catch((error) => {
+      this.setState({'readonly': false,});
       console.error(error);
     })
   }
@@ -81,26 +86,26 @@ class RegisterForm extends Component {
       <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label className="sr-only" htmlFor="username">Username</label>
-          <input type="text" className="form-control" id="register_username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} required />
+          <input type="text" className="form-control" id="register_username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="first_name">First name</label>
-          <input type="text" className="form-control" id="register_first_name" placeholder="First name" value={this.state.first_name} onChange={this.handleChangeFirstName} required />
+          <input type="text" className="form-control" id="register_first_name" placeholder="First name" value={this.state.first_name} onChange={this.handleChangeFirstName} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="last_name">Last name</label>
-          <input type="text" className="form-control" id="register_last_name" placeholder="Last name" value={this.state.last_name} onChange={this.handleChangeLastName} required />
+          <input type="text" className="form-control" id="register_last_name" placeholder="Last name" value={this.state.last_name} onChange={this.handleChangeLastName} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="email">Email address</label>
-          <input type="email" className="form-control" id="register_email" placeholder="Email address" value={this.state.email} onChange={this.handleChangeEmail} required />
+          <input type="email" className="form-control" id="register_email" placeholder="Email address" value={this.state.email} onChange={this.handleChangeEmail} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="password">Password</label>
-          <input type="password" className="form-control" id="register_password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} required />
+          <input type="password" className="form-control" id="register_password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} required readOnly={this.state.readonly} />
         </div>
         <div className="form-group">
-          <button id="register_submit" type="submit" className="btn btn-primary btn-block">Register</button>
+          <button id="register_submit" type="submit" className="btn btn-primary btn-block" disabled={this.state.readonly}>Register</button>
         </div>
       </form>
     )

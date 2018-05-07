@@ -10,6 +10,7 @@ class NewPostForm extends Component {
 
     this.state = {
       message: '',
+      readonly: false,
     }
 
     this.handleChangeMessage = this.handleChangeMessage.bind(this);
@@ -23,6 +24,8 @@ class NewPostForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
+    this.setState({'readonly': true,});
+
     return axios({
       method: 'POST',
       url: `${API_ROOT}/wall/`,
@@ -31,10 +34,15 @@ class NewPostForm extends Component {
       },
       headers: { 'Accept': 'application/json' }
     }).then((response) => {
+      this.setState({'readonly': false,});
+      this.setState({ message: '' })
       const data = response.data;
       if (data.errors === null) {
         this.props.updatePosts();
       }
+    }).catch((err) => {
+      this.setState({'readonly': false,});
+      console.error(err);
     })
   }
 
@@ -50,9 +58,9 @@ class NewPostForm extends Component {
           <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label className="sr-only" htmlFor="newpost_message">Message</label>
-              <textarea id="newpost_message" className="form-control" rows="3" onChange={this.handleChangeMessage} value={this.state.message} />
+              <textarea id="newpost_message" className="form-control" rows="3" onChange={this.handleChangeMessage} value={this.state.message} readOnly={this.state.readonly} />
             </div>
-            <button type="submit" className="btn btn-primary">Post new message to wall</button>
+            <button type="submit" className="btn btn-primary" disabled={this.state.readonly}>Post new message to wall</button>
           </form>
         </div>
         <hr />
