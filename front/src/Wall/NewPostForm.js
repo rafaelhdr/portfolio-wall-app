@@ -33,7 +33,7 @@ class NewPostForm extends Component {
     }).then((response) => {
       const data = response.data;
       if (data.errors === null) {
-        console.log('TODO: Put message in the wall')
+        this.props.updatePosts();
       }
     })
   }

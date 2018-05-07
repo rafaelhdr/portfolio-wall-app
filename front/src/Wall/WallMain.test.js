@@ -1,5 +1,5 @@
 import React from 'react';
-import { NewPostForm } from "./NewPostForm.js";
+import { WallMain } from "./WallMain.js";
 import renderer from 'react-test-renderer';
 import { EXPECTED_BODY, MockApp } from './Mocks.js';
 import Enzyme, { shallow } from 'enzyme';
@@ -20,22 +20,15 @@ describe('API', () => {
 
   describe('methods', () => {
 
-    it('add new post to the site', (done) => {
-      var mockApp = new MockApp();
-      const wrapper = shallow(<NewPostForm
-        updatePosts={() => mockApp.updatePosts()}
-      />);
-
-      wrapper.instance().handleChangeMessage({ target: { value: 'I am the message :)', } });
-      wrapper.instance().handleSubmit({ preventDefault: () => { } })
+    it('get posts', (done) => {
+      const wrapper = shallow(<WallMain />);
 
       moxios.wait(function () {
         let request = moxios.requests.mostRecent()
         request.respondWith({
           status: 200,
-          response: EXPECTED_BODY.NEW_POST_SUCCESSFUL,
+          response: EXPECTED_BODY.LIST_OF_POSTS,
         }).then(function () {
-          expect(mockApp.updatePostsCalled).toBe(true);
           done();
         })
       })

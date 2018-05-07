@@ -30,9 +30,13 @@ const EXPECTED_BODY = {
 class MockApp {
   constructor() {
     this.setUserCalled = false;
+    this.updatePostsCalled = false;
   }
   setUser(user) {
     this.setUserCalled = true;
+  }
+  updatePosts() {
+    this.updatePostsCalled = true;
   }
 }
 

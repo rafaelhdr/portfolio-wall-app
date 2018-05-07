@@ -10,29 +10,14 @@ import moxios from 'moxios';
 
 describe('API', () => {
 
-  beforeEach(function () {
-    moxios.install()
-  })
-
-  afterEach(function () {
-    moxios.uninstall()
-  })
-
   describe('methods', () => {
 
-    it('login visitor', (done) => {
-      var mockApp = new MockApp()
-      const wrapper = shallow(<PostList />);
-
-      moxios.wait(function () {
-        let request = moxios.requests.mostRecent()
-        request.respondWith({
-          status: 200,
-          response: EXPECTED_BODY.LIST_OF_POSTS,
-        }).then(function () {
-          done();
-        })
-      })
+    it('list posts of the wall', () => {
+      const posts = EXPECTED_BODY.LIST_OF_POSTS.data.posts;
+      const tree = renderer
+        .create(<PostList posts={posts} />)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
     });
 
   })

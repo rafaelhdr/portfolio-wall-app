@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`API methods list posts of the wall 1`] = `
+<div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-12"
+    >
+      <h2>
+        List of messages
+      </h2>
+    </div>
+  </div>
+  <div
+    className="jumbotron"
+  >
+    <p>
+      War is peace. Freedom is slavery. Ignorance is strength.
+    </p>
+    <p
+      className="author_line"
+    >
+      George Orwell
+       - 
+      Sat, 05 May 2018 23:45:59 GMT
+    </p>
+  </div>
+  <div
+    className="jumbotron"
+  >
+    <p>
+      All animals are equal, but some animals are more equal than others.
+    </p>
+    <p
+      className="author_line"
+    >
+      George Orwell
+       - 
+      Sat, 05 May 2018 22:23:00 GMT
+    </p>
+  </div>
+</div>
+`;
