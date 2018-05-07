@@ -42,6 +42,28 @@ describe('API', () => {
       })
     });
 
+    it('login visitor fail', (done) => {
+      var mockApp = new MockApp()
+      const wrapper = shallow(<LoginForm
+        setUser={(user) => mockApp.setUser(user)}
+      />);
+
+      wrapper.instance().handleChangeUsername({ target: { value: 'george', } });
+      wrapper.instance().handleChangePassword({ target: { value: 'wrong-password', } });
+      wrapper.instance().handleSubmit({ preventDefault: () => { } })
+
+      moxios.wait(function () {
+        let request = moxios.requests.mostRecent()
+        request.respondWith({
+          status: 200,
+          response: EXPECTED_BODY.LOGIN_FAIL,
+        }).then(function () {
+          expect(mockApp.setUserCalled).toBe(false);
+          done();
+        })
+      })
+    });
+
   })
 
 });

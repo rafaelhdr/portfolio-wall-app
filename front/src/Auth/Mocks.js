@@ -5,12 +5,25 @@ const EXPECTED_BODY = {
     errors: null,
   },
 
+  REGISTER_FAIL: {
+    errors: {
+      "username":
+        [
+          "A user with that username already exists."
+        ]
+    },
+  },
+
   LOGIN_SUCCESSFUL: {
     errors: null,
     data: {
       first_name: 'George',
       last_name: 'Orwell',
     }
+  },
+
+  LOGIN_FAIL: {
+    errors: ['Invalid username and/or password!'],
   },
 
   LOGOUT_SUCCESSFUL: {

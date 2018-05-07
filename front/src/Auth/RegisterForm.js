@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { API_ROOT } from '../ApiConfig.js';
 import axios from "axios";
+import { ErrorBox } from './ErrorBox.js';
 
 
 class RegisterForm extends Component {
@@ -15,6 +16,7 @@ class RegisterForm extends Component {
       email: '',
       password: '',
       readonly: false,
+      error: null,
     }
 
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -52,7 +54,7 @@ class RegisterForm extends Component {
      */
     event.preventDefault();
 
-    this.setState({'readonly': true,});
+    this.setState({ 'readonly': true, });
 
     return axios({
       method: 'POST',
@@ -66,7 +68,7 @@ class RegisterForm extends Component {
       },
       headers: { 'Accept': 'application/json' }
     }).then((response) => {
-      this.setState({'readonly': false,});
+      this.setState({ 'readonly': false, });
       const data = response.data;
       if (data.errors === null) {
         this.props.setUser({
@@ -75,8 +77,12 @@ class RegisterForm extends Component {
           username: this.state.username,
         });
       }
+      else {
+        const errKey = Object.keys(data.errors)[0];
+        this.setState({error: data.errors[errKey]})
+      }
     }).catch((error) => {
-      this.setState({'readonly': false,});
+      this.setState({ 'readonly': false, });
       console.error(error);
     })
   }
@@ -84,6 +90,7 @@ class RegisterForm extends Component {
   render() {
     return (
       <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
+        <ErrorBox error={this.state.error} />
         <div className="form-group">
           <label className="sr-only" htmlFor="username">Username</label>
           <input type="text" className="form-control" id="register_username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} required readOnly={this.state.readonly} />

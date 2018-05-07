@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { API_ROOT } from '../ApiConfig.js';
+import { ErrorBox } from './ErrorBox.js';
 import axios from "axios";
 
 
@@ -12,6 +13,7 @@ class LoginForm extends Component {
       username: '',
       password: '',
       readonly: false,
+      error: null,
     }
 
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
@@ -54,6 +56,9 @@ class LoginForm extends Component {
           username: this.state.username,
         });
       }
+      else {
+        this.setState({'error': data.errors[0]})
+      }
     }).catch((err) => {
       this.setState({'readonly': false,});
       console.error(err);
@@ -63,6 +68,7 @@ class LoginForm extends Component {
   render() {
     return (
       <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
+        <ErrorBox error={this.state.error} />
         <div className="form-group">
           <label className="sr-only" htmlFor="username">Username</label>
           <input type="text" className="form-control" id="login_username" placeholder="Username" onChange={this.handleChangeUsername} required readOnly={this.state.readonly} />
