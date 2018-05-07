@@ -7,6 +7,7 @@ exports[`Components render LoginMenu for authenticated users 1`] = `
   <li>
     <a
       className="hover-pointer"
+      id="btn_logout"
       onClick={[Function]}
     >
       Logout
@@ -25,6 +26,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
     <a
       className="dropdown-toggle"
       data-toggle="dropdown"
+      id="login_register_menu"
     >
       <b>
         Login or Register
@@ -94,6 +96,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
               >
                 <button
                   className="btn btn-primary btn-block"
+                  id="login_submit"
                   type="submit"
                 >
                   Login
@@ -119,7 +122,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  id="username"
+                  id="register_username"
                   onChange={[Function]}
                   placeholder="Username"
                   required={true}
@@ -138,7 +141,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  id="first_name"
+                  id="register_first_name"
                   onChange={[Function]}
                   placeholder="First name"
                   required={true}
@@ -157,7 +160,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  id="last_name"
+                  id="register_last_name"
                   onChange={[Function]}
                   placeholder="Last name"
                   required={true}
@@ -176,7 +179,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  id="email"
+                  id="register_email"
                   onChange={[Function]}
                   placeholder="Email address"
                   required={true}
@@ -195,7 +198,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
                 </label>
                 <input
                   className="form-control"
-                  id="password"
+                  id="register_password"
                   onChange={[Function]}
                   placeholder="Password"
                   required={true}
@@ -208,6 +211,7 @@ exports[`Components render LoginMenu for not authenticated users 1`] = `
               >
                 <button
                   className="btn btn-primary btn-block"
+                  id="register_submit"
                   type="submit"
                 >
                   Register

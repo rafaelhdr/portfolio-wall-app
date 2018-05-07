@@ -65,7 +65,7 @@ class LoginForm extends Component {
           <input type="password" className="form-control" id="login_password" placeholder="Password" onChange={this.handleChangePassword} required />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary btn-block">Login</button>
+          <button type="submit" className="btn btn-primary btn-block" id="login_submit">Login</button>
         </div>
       </form>
     )

@@ -16,7 +16,7 @@ class LoginMenu extends Component {
     return (
       <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
-          <a className="dropdown-toggle" data-toggle="dropdown"><b>Login or Register</b> <span className="caret"></span></a>
+          <a id="login_register_menu" className="dropdown-toggle" data-toggle="dropdown"><b>Login or Register</b> <span className="caret"></span></a>
           <ul id="login-dp" className="dropdown-menu">
             <li>
               <div className="row">

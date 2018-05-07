@@ -81,26 +81,26 @@ class RegisterForm extends Component {
       <form className="form" acceptCharset="UTF-8" onSubmit={this.handleSubmit}>
         <div className="form-group">
           <label className="sr-only" htmlFor="username">Username</label>
-          <input type="text" className="form-control" id="username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} required />
+          <input type="text" className="form-control" id="register_username" placeholder="Username" value={this.state.username} onChange={this.handleChangeUsername} required />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="first_name">First name</label>
-          <input type="text" className="form-control" id="first_name" placeholder="First name" value={this.state.first_name} onChange={this.handleChangeFirstName} required />
+          <input type="text" className="form-control" id="register_first_name" placeholder="First name" value={this.state.first_name} onChange={this.handleChangeFirstName} required />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="last_name">Last name</label>
-          <input type="text" className="form-control" id="last_name" placeholder="Last name" value={this.state.last_name} onChange={this.handleChangeLastName} required />
+          <input type="text" className="form-control" id="register_last_name" placeholder="Last name" value={this.state.last_name} onChange={this.handleChangeLastName} required />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="email">Email address</label>
-          <input type="email" className="form-control" id="email" placeholder="Email address" value={this.state.email} onChange={this.handleChangeEmail} required />
+          <input type="email" className="form-control" id="register_email" placeholder="Email address" value={this.state.email} onChange={this.handleChangeEmail} required />
         </div>
         <div className="form-group">
           <label className="sr-only" htmlFor="password">Password</label>
-          <input type="password" className="form-control" id="password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} required />
+          <input type="password" className="form-control" id="register_password" placeholder="Password" value={this.state.password} onChange={this.handleChangePassword} required />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary btn-block">Register</button>
+          <button id="register_submit" type="submit" className="btn btn-primary btn-block">Register</button>
         </div>
       </form>
     )

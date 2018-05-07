@@ -26,7 +26,7 @@ class Logout extends Component {
   render() {
     return (
       <ul className="nav navbar-nav navbar-right">
-        <li><a className="hover-pointer" onClick={this.handleLogout}>Logout</a></li>
+        <li><a id="btn_logout" className="hover-pointer" onClick={this.handleLogout}>Logout</a></li>
       </ul>
     )
   }
