@@ -6,6 +6,18 @@
 
 [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/).
 
+[TestCafe](https://github.com/DevExpress/testcafe) for tests e2e (`npm install -g testcafe`)
+
+## First time installation
+
+First time it is required to install django migrations and install node requirements.
+
+```shell
+make init
+```
+
+The command above also starts the server. You can access [http://localhost:3000/](http://localhost:3000/) to start using the application.
+
 ## Running local
 
 The project is prepared for running in local environments (volume is mounted instead of creating the application image).
@@ -21,6 +33,8 @@ or
 ```shell
 docker-compose -f docker-compose.development.yml up -d
 ```
+
+You can access [http://localhost:3000/](http://localhost:3000/) to use the application.
 
 ### (Optional) Send e-mail
 
