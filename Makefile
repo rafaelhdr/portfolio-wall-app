@@ -4,11 +4,12 @@
 # Initialize api database and install react dependencies
 # It is necessary to `chmod 777 db.sqlite` for later e2e tests, because
 # It will flush data of the mock user
-init: development
+init:
 	{ \
-	docker-compose -f docker-compose.development.yml exec api sh -c "python manage.py migrate" && \
-	docker-compose -f docker-compose.development.yml exec api sh -c "chmod 777 db.sqlite3" && \
-	docker-compose -f docker-compose.development.yml exec front sh -c "npm install"; \
+	docker-compose -f docker-compose.development.yml run api sh -c "python manage.py migrate" && \
+	docker-compose -f docker-compose.development.yml run api sh -c "chmod 777 db.sqlite3" && \
+	docker-compose -f docker-compose.development.yml run front sh -c "npm install" && \
+	make development; \
 	}
 
 build:
