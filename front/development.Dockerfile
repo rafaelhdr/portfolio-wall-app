@@ -5,4 +5,4 @@ FROM node:8.11
 
 WORKDIR /code
 
-CMD /bin/sh -c "npm install && npm start"
+CMD /bin/sh -c "npm start"
