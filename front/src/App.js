@@ -65,6 +65,7 @@ class App extends Component {
         <WallMain
           isAuthenticated={this.state.isAuthenticated}
           setUser={(user) => this.setUser(user)}
+          user={this.state.user}
         />
       </div>
     );

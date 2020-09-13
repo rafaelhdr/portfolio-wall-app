@@ -12,9 +12,10 @@ function checkUser(setUserCallback) {
     const data = response.data;
     if (data.errors === null && data.data.user != null) {
       setUserCallback({
-        first_name: data.data.first_name,
-        last_name: data.data.last_name,
-        username: data.data.username,
+        id: data.data.user.id,
+        first_name: data.data.user.first_name,
+        last_name: data.data.user.last_name,
+        username: data.data.user.username,
       });
     }
   })

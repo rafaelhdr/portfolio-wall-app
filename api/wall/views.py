@@ -1,15 +1,14 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import serializers
-from rest_framework.parsers import JSONParser
 from wall.forms import PostForm
 from wall.models import Post
-import json
 
 
 class PostSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     message = serializers.CharField(required=True)
+    author_id = serializers.IntegerField(source='author.id')
     author_name = serializers.CharField(source='author.get_full_name')
     created_at = serializers.DateTimeField()
 

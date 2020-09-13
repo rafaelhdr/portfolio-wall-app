@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { checkUser } from '../Auth/Me.js'
 import './PostList.css';
 
 
@@ -13,6 +14,7 @@ class PostList extends Component {
     if (this.props.posts === null) {
       return <h3>Loading messages</h3>
     }
+    const user_id = this.props.user && this.props.user.id;
 
     return (
       <div>
@@ -22,11 +24,14 @@ class PostList extends Component {
           </div>
         </div>
 
-        {this.props.posts.map(({ id, message, author_name, created_at }) => {
+        {this.props.posts.map(({ id, message, author_id, author_name, created_at }) => {
           return (
             <div key={id} className="jumbotron">
               <p>{message}</p>
-              <p className="author_line">{author_name} - {humanizeDate(created_at)}</p>
+              <p className="author_line">
+                {author_id == user_id && <strong>(Author) </strong>}
+                {author_name} - {humanizeDate(created_at)}
+              </p>
             </div>
           )
         })}

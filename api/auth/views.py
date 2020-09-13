@@ -1,6 +1,5 @@
 from auth.forms import UserForm
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import json
@@ -14,6 +13,7 @@ def auth_me(request):
     user_data = None
     if request.user.is_authenticated():
         user_data = {
+            'id': request.user.id,
             'username': request.user.username,
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,

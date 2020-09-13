@@ -44,6 +44,7 @@ class WallMain extends Component {
         />
         <PostList
           posts={this.state.posts}
+          user={this.props.user}
         />
 
       </div>
